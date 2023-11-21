@@ -9,7 +9,7 @@ import { MongoClient, MongoClientOptions, Db, Collection } from 'mongodb';
 
 // Ensure that MONGODB_URL is defined
 //@ts-ignore
-const MONGODB_URL: string = import.meta.env.MONGODB_URL!;
+const MONGODB_URL: string = process.env.MONGODB_URL!;
 if (!MONGODB_URL) {
     throw new Error(
         'Please define the MONGODB_URL environment variable inside .env'
@@ -25,11 +25,6 @@ interface DatabaseConnection {
 interface CachedConnection {
     conn: DatabaseConnection | null;
     promise: Promise<void> | null;
-}
-
-interface MongoOptions extends MongoClientOptions {
-    useNewUrlParser?: boolean;
-    useUnifiedTopology?: boolean;
 }
 
 declare const global: typeof globalThis & {
@@ -49,11 +44,7 @@ export async function connectToDatabase(): Promise<{ db: Db }> {
             client: null!,
             db: null!,
         };
-        const opts: MongoOptions = {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        };
-        cached.promise = MongoClient.connect(MONGODB_URL, opts)
+        cached.promise = MongoClient.connect(MONGODB_URL)
             .then((client) => {
                 conn.client = client;
                 return client.db('updates');

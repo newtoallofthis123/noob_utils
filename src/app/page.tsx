@@ -1,8 +1,13 @@
-import Nav from "@/components/base/nav";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Nav from '@/components/base/nav';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { connectToDatabase, type Database } from '@/lib/db';
 
-export default function Home() {
+export default async function Home() {
+    const { db }: { db: Database } = await connectToDatabase();
+    const data = db.collection('pages').find({}).toArray();
+    console.log(JSON.stringify(data));
+
     return (
         <div>
             <Nav />
@@ -27,9 +32,7 @@ export default function Home() {
                         style={{ padding: '20px' }}
                         className="mt-4 text-md"
                     >
-                        <Link href="/about">
-                            Why this site
-                        </Link>
+                        <Link href="/about">Why this site</Link>
                     </Button>
                 </div>
                 {/* <div className="flex flex-row justify-start gap-x-14 mt-4 mb-3">
