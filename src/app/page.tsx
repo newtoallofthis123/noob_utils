@@ -15,7 +15,7 @@ export default async function Home() {
                 <h2 className="text-4xl font-semibold pt-4">
                     Nerdiness is here to stay
                 </h2>
-                <div className="text-neutral-700 text-lg leading-relaxed md:pt-4">
+                <div className="text-neutral-800 text-lg leading-relaxed md:pt-4">
                     <p>
                         Hey! If you are here, you were most likely trying one of
                         my services, either through the Main site, or through
@@ -35,17 +35,14 @@ export default async function Home() {
                         <Link href="/about">Why this site</Link>
                     </Button>
                 </div>
-                {/* <div className="flex flex-row justify-start gap-x-14 mt-4 mb-3">
-                    <Button style={{ padding: "24px" }} className="text-lg">
-                        <Link href="/services/go">Url Shortener</Link>
-                    </Button>
-                    <Button style={{ padding: "24px" }} className="text-lg">
-                        <Link href="/services/go">Pastebin</Link>
-                    </Button>
-                    <Button style={{ padding: "24px" }} className="text-lg">
-                        <Link href="/services/go">Journal</Link>
-                    </Button>
-                </div> */}
+                <div className='mt-4 bg-red-400 border-2 border-black p-3'>
+                    <h1 className='text-2xl font-bold'>This site is under ⚠️ Heavy Development</h1>
+                    <p>
+                        This site is my site&apos;s future main hub. I am currently working on it, and it is not ready for production use. 
+                        I am planning on migrating NoobPaste and NoobShort, along with all of my updates to this site.
+                        Blog post about this HUGE change coming soon.
+                    </p>
+                </div>
             </div>
         </div>
     );

@@ -16,7 +16,7 @@ export default function Nav() {
         <>
             <nav>
                 <div
-                    className="flex flex-row justify-between items-center p-3 border-b-2 border-neutral-200 shadow-md"
+                    className="flex flex-row justify-between items-center p-3 border-b-2 border-neutral-200"
                 >
                     <div className="flex-shrink-0 flex flex-row justify-around">
                         <h1 className="text-2xl text-stone-800 dark:text-gray-50 font-bold p-1 ml-2">
